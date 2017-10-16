@@ -37,7 +37,7 @@ public class FlatAmtDiscount implements Discount {
         FlatAmtDiscount percentOffDiscount = new FlatAmtDiscount(10);
         double amt = percentOffDiscount.getDiscountAmount(20.00, 2);
 
-        System.out.println("Discount should be $10, and it is: " + amt);
+        System.out.println("Discount should be $110, and it is: " + amt);
 
     }
 
