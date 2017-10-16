@@ -9,7 +9,7 @@ package discountstrategyproject;
  *
  * @author cwerning
  */
-public class QtyPercentOffDiscount implements Discount{
+public class QtyPercentOffDiscount implements Discount {
 
     private double percentOff;
     private double minQty;
@@ -18,18 +18,16 @@ public class QtyPercentOffDiscount implements Discount{
         setPercentOff(percentOff);
         setMinQty(minQty);
     }
-   
-    
+
     @Override
     public final double getDiscountAmount(double unitCost, double qty) {
-        double amt = 0;
-        
-        if(qty < minQty){
+
+        if (qty < minQty) {
             return 0;
         } else {
             return unitCost * qty * percentOff;
         }
-        
+
     }
 
     public final double getPercentOff() {
@@ -43,26 +41,25 @@ public class QtyPercentOffDiscount implements Discount{
         this.percentOff = percentOff;
     }
 
-    public double getMinQty() {
+    public final double getMinQty() {
         return minQty;
     }
 
-    public void setMinQty(double minQty) {
+    public final void setMinQty(double minQty) {
+        if (minQty < 1){
+            throw new IllegalArgumentException("Min Qty must be greater than 0");
+        }
         this.minQty = minQty;
     }
-    
-    
-    
+
     public static void main(String[] args) {
         QtyPercentOffDiscount percentOffDiscount = new QtyPercentOffDiscount(.10, 5);
         double amt = percentOffDiscount.getDiscountAmount(20.00, 2);
-        
-        System.out.println("Discount should be $4, and it is: "  + amt);
+
+        System.out.println("Discount should be $4, and it is: " + amt);
         amt = percentOffDiscount.getDiscountAmount(20.00, 6);
         System.out.println("Discount should be $12, and it is: " + amt);
-        
+
     }
-
-
 
 }

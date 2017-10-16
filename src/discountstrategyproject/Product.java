@@ -23,39 +23,51 @@ public class Product {
         this.discount = discount;
     }
     
-    public double getDiscountAmt(double qty){
+    public final double getDiscountAmt(double qty){
         return discount.getDiscountAmount(unitCost, qty);
     }
 
-    public String getProdId() {
+    public final String getProdId() {
         return prodId;
     }
 
-    public void setProdId(String prodId) {
+    public final void setProdId(String prodId) {
+        if(prodId == null){
+            throw new IllegalArgumentException("Product ID cannot be null");
+        }
         this.prodId = prodId;
     }
 
-    public double getUnitCost() {
+    public final double getUnitCost() {
         return unitCost;
     }
 
-    public void setUnitCost(double unitCost) {
+    public final void setUnitCost(double unitCost) {
+        if(unitCost < 0){
+            throw new IllegalArgumentException("The Uit most be greater than 0.");
+        }
         this.unitCost = unitCost;
     }
 
-    public String getProdName() {
+    public final String getProdName() {
         return prodName;
     }
 
-    public void setProdName(String prodName) {
+    public final void setProdName(String prodName) {
+        if(prodName == null){
+              throw new IllegalArgumentException("The Product must have a name.");
+        }
         this.prodName = prodName;
     }
 
-    public Discount getDiscount() {
+    public final Discount getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Discount discount) {
+    public final void setDiscount(Discount discount) {
+        if(discount == null){
+              throw new IllegalArgumentException("Product discount cannot be null");
+        }
         this.discount = discount;
     }
     
