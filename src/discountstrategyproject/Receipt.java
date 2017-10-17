@@ -10,7 +10,7 @@ package discountstrategyproject;
  * @author Chad Werning
  */
 public class Receipt {
-    
+
     private LineItem[] lineItems;
 
     public Receipt(LineItem[] lineItems) {
@@ -24,7 +24,9 @@ public class Receipt {
     public void setLineItems(LineItem[] lineItems) {
         this.lineItems = lineItems;
     }
-    
-    
-    
+
+    public static void main(String[] args) {
+
+    }
+
 }
